@@ -68,6 +68,22 @@ public class kNN implements OfflineLearningNominalDataClassifier{
         }
         return differences;
     }
+
+    @Override
+    public OfflineLearningNominalDataClassifier copy() {
+        kNN retval=new kNN(k);
+        retval.trained = trained;
+        if (exampleNumInputCategory!=null)
+            retval.exampleNumInputCategory=exampleNumInputCategory.clone();
+        if (exampleInputCategory!=null)
+            for (int i=0;i<exampleInputCategory.length;i++)
+                if (exampleInputCategory[i]!=null)
+                    retval.exampleInputCategory[i]=exampleInputCategory[i].clone();
+        retval.exampleNumOutputClass=exampleNumOutputClass;
+        if (exampleOutputClass!=null)
+            retval.exampleOutputClass=exampleOutputClass.clone();
+        return retval;
+    }
     
     private class NearestObject
     {
@@ -117,5 +133,7 @@ public class kNN implements OfflineLearningNominalDataClassifier{
         }
         return chosenClass;
     }
+    
+    
     
 }
