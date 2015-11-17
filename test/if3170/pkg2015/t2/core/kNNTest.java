@@ -33,7 +33,7 @@ public class kNNTest {
     
     
     /**
-     * test ini diambil dari soal UAS IF3170 Sem I 2015/2016 untuk kNN.
+     * test ini diambil dari soal UTS IF3170 Sem I 2015/2016 untuk kNN.
      * abstraksi:
      * yellow: 0, purple: 1
      * small: 0, large: 1
@@ -44,7 +44,7 @@ public class kNNTest {
      * @throws Exception 
      */
     @Test
-    public void testPredictDariSoalUAS() throws Exception{
+    public void testPredictDariSoalUTS() throws Exception{
         OfflineLearningNominalDataClassifier classifier = new kNN(5);
         int[] numInputCategory = {2,2,2,2};
         int[][] inputCategory = {
