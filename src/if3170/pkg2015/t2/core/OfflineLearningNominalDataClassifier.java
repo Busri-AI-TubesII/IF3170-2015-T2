@@ -30,4 +30,5 @@ public interface OfflineLearningNominalDataClassifier {
      */
     public void train(int[] numInputCategory, int[][] inputCategory, int numOutputClass, int[] outputClass) throws Exception;
     public int predict(int [] inputCategory) throws Exception;
+    public OfflineLearningNominalDataClassifier copy();
 }
