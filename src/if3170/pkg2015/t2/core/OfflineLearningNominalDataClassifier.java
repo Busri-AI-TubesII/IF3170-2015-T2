@@ -13,7 +13,7 @@ package if3170.pkg2015.t2.core;
  * menerima dan mengeluarkan data nominal yang diwakili oleh bilangan 0,1,2, ...
  * @author nim_13512501
  */
-public interface OfflineLearningNominalDataClassifier {
+public abstract class OfflineLearningNominalDataClassifier {
     /**
      * 
      * @param numInputCategory
@@ -28,7 +28,19 @@ public interface OfflineLearningNominalDataClassifier {
      * 0<=inputCategory[i][j]<numInputCategories[j]
      * 0<=outputClass<numOutputClass
      */
-    public void train(int[] numInputCategory, int[][] inputCategory, int numOutputClass, int[] outputClass) throws Exception;
-    public int predict(int [] inputCategory) throws Exception;
-    public OfflineLearningNominalDataClassifier copy();
+    public abstract void train(int[] numInputCategory, int[][] inputCategory, int numOutputClass, int[] outputClass) throws Exception;
+    public abstract int predict(int [] inputCategory) throws Exception;
+    public abstract OfflineLearningNominalDataClassifier copy();
+    public double calculateAccuracy(OfflineLearningNominalDataClassifier cl,
+            int [][] inputCategory, int [] OutputClass) throws Exception{
+        int numFalse = 0;
+        int numTrue = 0;
+        for (int i=0;i<inputCategory.length;i++){
+            if (cl.predict(inputCategory[i])==OutputClass[i])
+                numTrue++;
+            else
+                numFalse++;
+        }
+        return ((double)numTrue/(double)(numFalse+numTrue));
+    }
 }

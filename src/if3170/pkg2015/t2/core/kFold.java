@@ -12,7 +12,7 @@ import java.util.Random;
  * @param T
  * @author nim_13512501
  */
-public class kFold implements OfflineLearningNominalDataClassifier {
+public class kFold extends OfflineLearningNominalDataClassifier {
     
     private int k;
     OfflineLearningNominalDataClassifier classifier;
@@ -45,19 +45,6 @@ public class kFold implements OfflineLearningNominalDataClassifier {
         }
     }
     
-    private double calculateAccuracy(OfflineLearningNominalDataClassifier cl,
-            int [][] inputCategory, int [] OutputClass) throws Exception{
-        int numFalse = 0;
-        int numTrue = 0;
-        for (int i=0;i<inputCategory.length;i++){
-            if (cl.predict(inputCategory[i])==OutputClass[i])
-                numTrue++;
-            else
-                numFalse++;
-        }
-        return ((double)numTrue/(double)(numFalse+numTrue));
-    }
-
     @Override
     public void train(int[] numInputCategory, int[][] inputCategory, int numOutputClass, int[] outputClass) throws Exception {
         shuffleTrainingSet(inputCategory, outputClass);
