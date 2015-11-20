@@ -70,6 +70,8 @@ public class kNNStringTest {
             assertEquals(testout[i],classifier.predict(testin[i]));
         }
         
+        System.out.println("accuracy: " + classifier.accuracy(inputCategory, outputClass));
+        
     }
     
 }

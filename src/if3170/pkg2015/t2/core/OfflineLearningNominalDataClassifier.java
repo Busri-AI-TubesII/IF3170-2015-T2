@@ -31,6 +31,9 @@ public abstract class OfflineLearningNominalDataClassifier {
     public abstract void train(int[] numInputCategory, int[][] inputCategory, int numOutputClass, int[] outputClass) throws Exception;
     public abstract int predict(int [] inputCategory) throws Exception;
     public abstract OfflineLearningNominalDataClassifier copy();
+    public double calculateAccuracy(int [][] inputCategory, int [] OutputClass) throws Exception{
+        return calculateAccuracy(this,inputCategory,OutputClass);
+    }
     public double calculateAccuracy(OfflineLearningNominalDataClassifier cl,
             int [][] inputCategory, int [] OutputClass) throws Exception{
         int numFalse = 0;

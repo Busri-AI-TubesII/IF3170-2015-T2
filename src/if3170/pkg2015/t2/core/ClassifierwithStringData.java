@@ -39,21 +39,29 @@ public class ClassifierwithStringData {
         }
         return -1;
     }
-    public void train(String[][] inputCategory, String[] outputClass) throws Exception{
-        //create array of dataset for training
+    private int [][] inputStringToInt(String [][]inputCategory){
+        
         int [][] inputCategoryInt = new int[inputCategory.length][];
         for (int i=0;i<inputCategory.length;i++){
             inputCategoryInt[i] = new int [inputCategory[i].length];
             for (int j=0;j<inputCategory[i].length;j++){
-                for (int k=0;k<inputString[j].length;k++) System.out.println(inputString[j][k]);
                 inputCategoryInt[i][j]=search(inputString[j], inputCategory[i][j]);
-                System.out.println("inputCategoryInt["+i+"]["+j+"]=" + inputCategoryInt[i][j]+";" + inputCategory[i][j]);
             }
         }
+        return inputCategoryInt;
+    }
+    private int [] outputClassStringToInt(String [] outputClass){
+        
         int [] outputClassInt = new int[outputClass.length];
         for (int i=0; i<outputClass.length;i++){
             outputClassInt[i]=search(outputString, outputClass[i]);
         }
+        return outputClassInt;
+    }
+    public void train(String[][] inputCategory, String[] outputClass) throws Exception{
+        //create array of dataset for training
+        int [][] inputCategoryInt = inputStringToInt(inputCategory);
+        int [] outputClassInt = outputClassStringToInt(outputClass);
         int [] numInputCategory = new int[inputString.length];
         for (int i=0;i<inputString.length;i++){
             numInputCategory[i] = inputString[i].length;
@@ -72,4 +80,7 @@ public class ClassifierwithStringData {
         return outputString[classInt];
     }
     
+    public double accuracy(String [][] inputCategories, String [] outputClass) throws Exception{
+        return classifier.calculateAccuracy(inputStringToInt(inputCategories), outputClassStringToInt(outputClass));
+    }
 }
