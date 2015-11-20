@@ -9,7 +9,7 @@ package if3170.pkg2015.t2.core;
  *
  * @author nim_13512501
  */
-public class NaiveBayes implements OfflineLearningNominalDataClassifier{
+public class NaiveBayes extends OfflineLearningNominalDataClassifier{
 
     double [][][] pInGivenOut = null; //p(Xi=x|C=c) dinyatakan oleh pInGivenOut[i][x][c]
     double [][] pIn = null; //p(Xi=j) dinyatakan oleh pIn[i][j]

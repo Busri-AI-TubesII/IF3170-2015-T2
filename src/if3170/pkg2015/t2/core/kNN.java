@@ -11,7 +11,7 @@ import java.util.Comparator;
  *
  * @author nim_13512501
  */
-public class kNN implements OfflineLearningNominalDataClassifier{
+public class kNN extends OfflineLearningNominalDataClassifier{
 
     public kNN(int k){
         this.k = k;
