@@ -1,0 +1,44 @@
+Implementasi algoritma:
+test 5-NN full training
+      numTrue: 11
+      numFalse: 3
+     accuracy: 0.7857142857142857
+test Naive Bayes full training
+      numTrue: 13
+      numFalse: 1
+     accuracy: 0.9285714285714286
+test 5-NN 10-fold
+      numTrue: 12
+      numFalse: 2
+     accuracy: 0.8571428571428571
+test Naive Bayes 10-fold
+      numTrue: 13
+      numFalse: 1
+     accuracy: 0.9285714285714286
+
+weka:
+--------------------------------------------------------------------------
+5-NN
+
+Correctly Classified Instances          10               71.4286 %
+Incorrectly Classified Instances         4               28.5714 %
+
+--------------------------------------------------------------------------
+Naive Bayes
+Correctly Classified Instances          13               92.8571 %
+Incorrectly Classified Instances         1                7.1429 %
+
+--------------------------------------------------------------------------
+
+5-NN 10-fold
+
+Correctly Classified Instances           9               64.2857 %
+Incorrectly Classified Instances         5               35.7143 %
+
+--------------------------------------------------------------------------
+Naive Bayes 10-fold
+Correctly Classified Instances           8               57.1429 %
+Incorrectly Classified Instances         6               42.8571 %
+
+--------------------------------------------------------------------------
+
