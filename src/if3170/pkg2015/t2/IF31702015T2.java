@@ -5,13 +5,8 @@
  */
 package if3170.pkg2015.t2;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import if3170.pkg2015.t2.core.FileLoader;
 import java.io.IOException;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.converters.ArffLoader.ArffReader;
 
 /**
  *
@@ -22,19 +17,25 @@ public class IF31702015T2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        BufferedReader reader = new BufferedReader(new FileReader("dataset/weather.nominal.arff"));
-        ArffReader arff = new ArffReader(reader);
-        Instances data = arff.getData();
-        data.setClassIndex(data.numAttributes() - 1);
         
-        for(int i=0; i<data.numInstances(); i++){
-            Instance instance = data.instance(i);
-            for(int j=0; j<instance.numAttributes(); j++){
-                System.out.print(instance.stringValue(j) + ",");
+        FileLoader fileloader = new FileLoader("dataset/weather.nominal.arff");
+        String[][] attributes = fileloader.getAttributes();
+        String[] labels = fileloader.getLabels();
+        
+        // Output for testing
+        System.out.println("Array of attributes:");
+        for(int i=0; i<attributes.length; i++){
+            for(int j=0; j<attributes[i].length; j++){
+                System.out.print(attributes[i][j] + ",");
             }
             System.out.println();
+        }
+  
+        System.out.println("Array of labels:");
+        for(int i=0; i<labels.length; i++){
+            System.out.println(labels[i]);
         }
     }
     
