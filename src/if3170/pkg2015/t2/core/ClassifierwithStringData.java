@@ -32,18 +32,27 @@ public class ClassifierwithStringData {
     public void setClassifier(OfflineLearningNominalDataClassifier classifier){
         this.classifier = classifier;
     }
+    private int search(Object [] arr, Object key){
+        for (int i=0;i<arr.length;i++){
+            if (arr[i].equals(key))
+                return i;
+        }
+        return -1;
+    }
     public void train(String[][] inputCategory, String[] outputClass) throws Exception{
         //create array of dataset for training
         int [][] inputCategoryInt = new int[inputCategory.length][];
         for (int i=0;i<inputCategory.length;i++){
             inputCategoryInt[i] = new int [inputCategory[i].length];
             for (int j=0;j<inputCategory[i].length;j++){
-                inputCategoryInt[i][j]=Arrays.binarySearch(inputString[i], inputCategory[i][j]);
+                for (int k=0;k<inputString[j].length;k++) System.out.println(inputString[j][k]);
+                inputCategoryInt[i][j]=search(inputString[j], inputCategory[i][j]);
+                System.out.println("inputCategoryInt["+i+"]["+j+"]=" + inputCategoryInt[i][j]+";" + inputCategory[i][j]);
             }
         }
         int [] outputClassInt = new int[outputClass.length];
         for (int i=0; i<outputClass.length;i++){
-            outputClassInt[i]=Arrays.binarySearch(outputString, outputClass[i]);
+            outputClassInt[i]=search(outputString, outputClass[i]);
         }
         int [] numInputCategory = new int[inputString.length];
         for (int i=0;i<inputString.length;i++){
@@ -57,7 +66,7 @@ public class ClassifierwithStringData {
     public String predict(String [] inputString) throws Exception{
         int [] inputInt = new int[inputString.length];
         for (int i=0;i<inputString.length;i++){
-            inputInt[i] = Arrays.binarySearch(this.inputString[i], inputString[i]);
+            inputInt[i] = search(this.inputString[i], inputString[i]);
         }
         int classInt= classifier.predict(inputInt);
         return outputString[classInt];
