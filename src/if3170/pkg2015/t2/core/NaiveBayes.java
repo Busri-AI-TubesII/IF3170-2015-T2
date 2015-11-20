@@ -100,7 +100,7 @@ public class NaiveBayes extends OfflineLearningNominalDataClassifier{
                 }
             }
             pOut[i]=(double)sumOut[i]/(double)outputClass.length;
-            System.out.println("pOut[" + i + "] = " + pOut[i]);
+           // System.out.println("pOut[" + i + "] = " + pOut[i]);
         }
         
         for (int k=0;k<numOutputClass;k++){
@@ -113,7 +113,7 @@ public class NaiveBayes extends OfflineLearningNominalDataClassifier{
                         }
                     }
                     pInGivenOut[i][j][k]=(double)curSum/(double)sumOut[k];
-                    System.out.println("pInGivenOut["+i+"]["+j+"]["+k+"] = " + pInGivenOut[i][j][k]);
+                   // System.out.println("pInGivenOut["+i+"]["+j+"]["+k+"] = " + pInGivenOut[i][j][k]);
                 }
             }
         }
@@ -135,7 +135,7 @@ public class NaiveBayes extends OfflineLearningNominalDataClassifier{
     private double pInGivenOut( int [] inputCategory, int Out){
         double prod = 1;
         for (int i=0;i<pInGivenOut.length;i++){
-            System.out.println(pInGivenOut[i][inputCategory[i]][Out]);
+          //  System.out.println(pInGivenOut[i][inputCategory[i]][Out]);
             prod*=pInGivenOut[i][inputCategory[i]][Out];
         }
         return prod;
@@ -160,7 +160,7 @@ public class NaiveBayes extends OfflineLearningNominalDataClassifier{
         double [] pOutGivenIn = new double[numOutputClass];
         for (int i=0;i<numOutputClass;i++){
             pOutGivenIn[i]=pOutGivenIn(i,inputCategory);
-            System.out.println("pOutGivenIn " + i + " = " + pOutGivenIn[i]);
+          //  System.out.println("pOutGivenIn " + i + " = " + pOutGivenIn[i]);
         }
         return maxIdx(pOutGivenIn);
     }

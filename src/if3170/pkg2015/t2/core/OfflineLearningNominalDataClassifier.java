@@ -44,6 +44,8 @@ public abstract class OfflineLearningNominalDataClassifier {
             else
                 numFalse++;
         }
+        System.out.println("      numTrue: " + numTrue);
+        System.out.println("      numFalse: " + numFalse);
         return ((double)numTrue/(double)(numFalse+numTrue));
     }
 }

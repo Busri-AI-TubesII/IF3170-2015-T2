@@ -16,7 +16,7 @@ public class ClassifierwithStringData {
     private String [][] inputString;
     private String [] outputString;
     
-    ClassifierwithStringData (OfflineLearningNominalDataClassifier classifier){
+    public ClassifierwithStringData (OfflineLearningNominalDataClassifier classifier){
         this.classifier = classifier;
     }
     
