@@ -5,6 +5,9 @@
  */
 package if3170.pkg2015.t2.core;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+
 /**
  * sebuah OfflineLearningNominalDataClassifier.
  * Training dilakukan sekali (Offline).
@@ -48,4 +51,6 @@ public abstract class OfflineLearningNominalDataClassifier {
         System.out.println("      numFalse: " + numFalse);
         return ((double)numTrue/(double)(numFalse+numTrue));
     }
+    abstract public void writeHypothesis(OutputStream str);
+    abstract public void loadHypothesis(InputStream str);
 }

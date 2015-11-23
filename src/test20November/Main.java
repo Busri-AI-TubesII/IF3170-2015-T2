@@ -6,7 +6,6 @@
 package test20November;
 
 import if3170.pkg2015.t2.core.ClassifierwithStringData;
-import if3170.pkg2015.t2.core.FileLoader;
 import if3170.pkg2015.t2.core.NaiveBayes;
 import if3170.pkg2015.t2.core.kFold;
 import if3170.pkg2015.t2.core.kNN;
@@ -18,7 +17,7 @@ import java.io.IOException;
  */
 public class Main {
      public static void main(String[] args) throws IOException, Exception {
-         FileLoader FL = new FileLoader("dataset/weather.nominal.arff");
+         ArffFileLoader FL = new ArffFileLoader("dataset/weather.nominal.arff");
          System.out.println("test 5-NN full training");
          ClassifierwithStringData cl5NN = new ClassifierwithStringData(new kNN(5));
          cl5NN.setInputString(FL.getAttributesLegalValues());

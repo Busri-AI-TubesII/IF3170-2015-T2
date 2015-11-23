@@ -5,6 +5,8 @@
  */
 package if3170.pkg2015.t2.core;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 
 /**
@@ -82,5 +84,14 @@ public class ClassifierwithStringData {
     
     public double accuracy(String [][] inputCategories, String [] outputClass) throws Exception{
         return classifier.calculateAccuracy(inputStringToInt(inputCategories), outputClassStringToInt(outputClass));
+    }
+    
+    //TODO save dan load
+    public void writeHypothesis(OutputStream str) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void loadHypothesis(InputStream str) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
