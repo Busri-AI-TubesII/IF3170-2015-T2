@@ -19,7 +19,7 @@ public class kNN extends OfflineLearningNominalDataClassifier{
         this.k = k;
     }
     
-    void setK(int k){
+    public void setK(int k){
         this.k= k;
     }
     
