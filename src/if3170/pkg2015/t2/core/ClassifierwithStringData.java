@@ -56,7 +56,7 @@ public class ClassifierwithStringData {
         
         int [] outputClassInt = new int[outputClass.length];
         for (int i=0; i<outputClass.length;i++){
-            outputClassInt[i]=search(outputString, outputClass[i]);
+            outputClassInt[i]=search(getOutputString(), outputClass[i]);
         }
         return outputClassInt;
     }
@@ -70,7 +70,7 @@ public class ClassifierwithStringData {
         }
         
         //train classifier
-        classifier.train(numInputCategory,inputCategoryInt,outputString.length,outputClassInt);
+        classifier.train(numInputCategory,inputCategoryInt,getOutputString().length,outputClassInt);
     }
     
     public String predict(String [] inputString) throws Exception{
@@ -79,11 +79,15 @@ public class ClassifierwithStringData {
             inputInt[i] = search(this.inputString[i], inputString[i]);
         }
         int classInt= classifier.predict(inputInt);
-        return outputString[classInt];
+        return getOutputString()[classInt];
     }
     
     public double accuracy(String [][] inputCategories, String [] outputClass) throws Exception{
         return classifier.calculateAccuracy(inputStringToInt(inputCategories), outputClassStringToInt(outputClass));
+    }
+    
+    public int [][] calculateConfusionMatrix(String [][] inputCategories, String [] outputClass) throws Exception{
+        return classifier.calculateConfusionMatrix(classifier, inputStringToInt(inputCategories), outputClassStringToInt(outputClass), outputString.length);
     }
     
     //TODO save dan load
@@ -93,5 +97,12 @@ public class ClassifierwithStringData {
 
     public void loadHypothesis(InputStream str) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the outputString
+     */
+    public String[] getOutputString() {
+        return outputString;
     }
 }

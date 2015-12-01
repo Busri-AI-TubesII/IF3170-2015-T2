@@ -47,9 +47,24 @@ public abstract class OfflineLearningNominalDataClassifier {
             else
                 numFalse++;
         }
-        System.out.println("      numTrue: " + numTrue);
-        System.out.println("      numFalse: " + numFalse);
         return ((double)numTrue/(double)(numFalse+numTrue));
+    }
+    
+    public int [][] calculateConfusionMatrix(OfflineLearningNominalDataClassifier cl,
+            int [][] inputCategory, int [] OutputClass, int numOutputClass) throws Exception{
+        int [][] retval = new int[numOutputClass][];
+        for (int i=0;i<retval.length;i++){
+            retval[i] = new int[numOutputClass];
+            for (int j=0;j<retval[i].length;j++){
+                retval[i][j]=0;
+            }
+        }
+        
+        for (int i=0;i<inputCategory.length;i++){
+            int predicted = cl.predict(inputCategory[i]);
+            retval[OutputClass[i]][predicted]++;
+        }
+        return retval;
     }
     abstract public void writeHypothesis(OutputStream str);
     abstract public void loadHypothesis(InputStream str);
