@@ -5,7 +5,7 @@
  */
 package if3170.pkg2015.t2;
 
-import if3170.pkg2015.t2.core.FileLoader;
+import test20November.ArffFileLoader;
 import java.io.IOException;
 
 /**
@@ -20,7 +20,7 @@ public class IF31702015T2 {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         
-        FileLoader fileloader = new FileLoader("dataset/weather.nominal.arff");
+        ArffFileLoader fileloader = new ArffFileLoader("dataset/weather.nominal.arff");
         String[][] attributes = fileloader.getAttributes();
         String[] labels = fileloader.getLabels();
         

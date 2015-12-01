@@ -18,7 +18,7 @@ import weka.core.converters.ArffLoader;
  *
  * @author David Kwan
  */
-public class ArffFileLoader {
+public class ArffFileLoader implements FileLoader.FileLoader{
     // attributes[i][j] artinya mendapatkan attribut ke j dari instance i
     private String[][] attributes;
     private String[] labels;

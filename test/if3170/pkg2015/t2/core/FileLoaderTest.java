@@ -5,6 +5,7 @@
  */
 package if3170.pkg2015.t2.core;
 
+import test20November.ArffFileLoader;
 import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -21,7 +22,7 @@ public class FileLoaderTest {
     @Test
     public void testWahaha() throws IOException{
         
-         FileLoader FL = new FileLoader("dataset/weather.nominal.arff");
+         ArffFileLoader FL = new ArffFileLoader("dataset/weather.nominal.arff");
          String [][] inputCategory = FL.getAttributes();
          String [] outputClass = FL.getLabels();
          String [][] inputLegalValues = FL.getAttributesLegalValues();
