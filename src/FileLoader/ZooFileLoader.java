@@ -65,7 +65,7 @@ public class ZooFileLoader implements FileLoader{
         int offset=0;
         
         Scanner sc = new Scanner(reader);
-        sc.useDelimiter(Pattern.compile("[,\\s]"));
+        sc.useDelimiter(Pattern.compile("[,\\s]+"));
         
         List<String[]> tempattr = new LinkedList<String[]> ();
         List<String> templabel = new LinkedList<String> ();
@@ -81,8 +81,6 @@ public class ZooFileLoader implements FileLoader{
             for (int i=0;i<numAttrs;i++){
                 if (!sc.hasNext()) throw new ParseException("Attr not found", offset);
                 curData[i]=sc.next();
-                System.out.println("attr: " + curData[i]);
-                System.out.flush();
                 offset+=1;
                 if (!arrayContains(attributesLegalValues[i],curData[i]))
                     throw new ParseException("Attribute outside Legal Values", offset);
