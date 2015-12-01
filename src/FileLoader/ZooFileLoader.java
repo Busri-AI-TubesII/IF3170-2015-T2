@@ -39,22 +39,22 @@ public class ZooFileLoader implements FileLoader{
         
         //instantiate legal values (hardcoded)
         attributesLegalValues= new String[][]{
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
+            {"1","0"},
             {"0","2","4","5","6","8"},
-            {"1,0"},
-            {"1,0"},
-            {"1,0"}            
+            {"1","0"},
+            {"1","0"},
+            {"1","0"}            
         };
         labelsLegalValues = new String [] { "1","2","3","4","5","6","7" };
         
@@ -97,8 +97,8 @@ public class ZooFileLoader implements FileLoader{
             templabel.add(curLabel);
         }
         
-        attributes = (String[][]) tempattr.toArray();
-        labels = (String[]) templabel.toArray();
+        attributes = tempattr.toArray(new String[tempattr.size()][] );
+        labels = templabel.toArray(new String[templabel.size()]);
     }
 
     
