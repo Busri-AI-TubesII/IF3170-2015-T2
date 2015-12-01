@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @param T
@@ -102,7 +103,7 @@ public class kFold extends OfflineLearningNominalDataClassifier {
     }
 
     @Override
-    public void loadHypothesis(InputStream str) {
+    public void loadHypothesis(Scanner str) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }  
 }
