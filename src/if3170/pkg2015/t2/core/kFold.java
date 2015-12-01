@@ -103,6 +103,7 @@ public class kFold extends OfflineLearningNominalDataClassifier {
     @Override
     public void writeHypothesis(OutputStream str) {
         PrintStream printStream = new PrintStream(str);
+        printStream.println(k);
         //save tipe dari classifier
         printStream.println(classifier.getClass().getName());
         printStream.flush();
@@ -111,6 +112,8 @@ public class kFold extends OfflineLearningNominalDataClassifier {
 
     @Override
     public void loadHypothesis(Scanner sc) {
+        k=sc.nextInt();
+        
         String className = sc.nextLine();
         System.out.println(className);
         
